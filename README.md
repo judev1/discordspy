@@ -1,23 +1,24 @@
-# The offical Python API wrapper for Discords.com
+# discords.py
+The offical Python API wrapper for Discords.com
 
-### Notices
+## Notices
 This is the first version with limited coverage of API endpoints, more features, functionality and documentation will be added in the future.
 
 
-### Installation:
+## Installation:
 ```
 pip install discords.py
 ```
 
-### Features
+## Features
  - Server count posting
  - Built-in automatic & interval server count posting
  - Built-in voting and webhook handlers
  - Voting and server posting events
 
-### Examples
+## Examples
 
-#### Automatic server count posting with event
+### Automatic server count posting with event
 Autoposting posts the servercount whenever a server is joined/removed while abiding with ratelimits
 ```py
 from discord.ext import commands
@@ -34,7 +35,7 @@ async def on_discords_server_post(status):
 bot.run(TOKEN)
 ```
 
-#### Interval server count posting every hour and a half
+### Interval server count posting every hour and a half
 ```py
 from discord.ext import commands
 import discordspy
@@ -51,8 +52,8 @@ async def on_discords_server_post(status):
 bot.run(TOKEN)
 ```
 
-#### Webhook voting event
-IMPORTANT: Your webhook url must end with `/discordswebhook` if you wish to use a different path, please specify it using the path argument inside the webhook method `path="/customwebhook"`, by default the port is 8080
+### Webhook voting event
+**IMPORTANT:** Your webhook url must end with `/discordswebhook` if you wish to use a different path, please specify it using the path argument inside the webhook method `path="/customwebhook"`, by default the port is 8080
 ```py
 from discord.ext import commands
 import discordspy
