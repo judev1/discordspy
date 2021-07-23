@@ -7,7 +7,7 @@ This is the first version with limited coverage of API endpoints, more features,
 
 ## Installation:
 ```
-pip install discords.py
+pip install discordspy
 ```
 
 ## Features
@@ -53,7 +53,9 @@ bot.run(TOKEN)
 ```
 
 ### Webhook voting event
-**IMPORTANT:** Your webhook url must end with `/discordswebhook` if you wish to use a different path, please specify it using the path argument inside the webhook method `path="/customwebhook"`, by default the port is 8080
+**IMPORTANT:** Your webhook url must end with `/discordswebhook` if you wish to use a different path, please specify it using the path argument inside the webhook method `path="/customwebhook"`,
+
+**IMPORTANT:** To recieve webhooks you must have set up port forwarding and specified the port in the webhook section on your bot page, by default the port is 8080
 ```py
 from discord.ext import commands
 import discordspy
