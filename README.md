@@ -13,8 +13,8 @@ pip install discords.py
 ## Features
  - Server count posting
  - Built-in automatic & interval server count posting
- - Built-in voting and webhook handlers
- - Voting and server posting events
+ - Built-in voting webhook handler
+ - Voting & server posting events
 
 ## Examples
 
