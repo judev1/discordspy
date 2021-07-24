@@ -62,12 +62,42 @@ import discordspy
 
 bot = commands.Bot("!")
 discords = discordspy.Client(bot, DISCORDS_TOKEN)
-discords.webhook(port=2296, auth="password")
+discords.webhook(port=6969, auth="password")
 
 @bot.event
-async def on_discords_server_post(status):
-    if status == 200:
-        print("Posted the server count:", discords.servers())
+async def on_discords_vote(data):
+    print("Recieved a vote")
 
 bot.run(TOKEN)
+```
+
+### Cog example
+```py
+from discord.ext import commands
+import discordspy
+
+class discords_cog(commands.Cog):
+
+    def __init__(self, bot):
+        self.discords = discordspy.Client(bot, DISCORDS_TOKEN)
+        self.discords.webhook(port=6969, auth="password")
+    
+    @commands.command()
+    def postservers(self, ctx):
+        self.discords.post_servers()
+
+    @commands.Cog.listener()
+    async def on_discords_server_post(self, status):
+        log_channel = self.bot.get_channel(LOG_CHANNEL_ID)
+        if status == 200:
+            await log_channel.send("Posted the server count")
+        else:
+            await log_channel.send("Failed to post the server count")
+
+    @commands.Cog.listener()
+    async def on_discords_vote(self, data):
+        print("Recieved a vote")
+
+def setup(bot):
+    bot.add_cog(discords_cog(bot))
 ```
