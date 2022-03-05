@@ -41,7 +41,7 @@ from discord.ext import commands
 import discordspy
 
 bot = commands.Bot("!")
-post = discordspy.Post.interval(minutes=30, hours=1)
+post = discordspy.Post.intervals(minutes=30, hours=1)
 discords = discordspy.Client(bot, DISCORDS_TOKEN, post=post)
 
 @bot.event
